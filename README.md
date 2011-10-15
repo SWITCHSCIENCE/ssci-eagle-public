@@ -1,4 +1,4 @@
-# EAGLE用ライブラリ #
+# EAGLE用ライブラリ（など） #
 
 ライセンスは特に主張しません。自由に使ってください。
 **できたら**、以下の事をお願いします。
@@ -6,7 +6,9 @@
 * 使用したプロジェクトを公表する際に、この場所への言及。
 * 改良点、新しいファイル等のフィードバック。
 
-----
+[ダウンロードするには、ここをクリックしてください。](https://github.com/SWITCHSCIENCE/ssci-eagle-public/zipball/master)
+
+## ファイルの内容 ##
 
 * akizuki.lbr
  * C9767 --- [C9767コンデンサマイク](http://akizukidenshi.com/catalog/g/gP-01810/)
