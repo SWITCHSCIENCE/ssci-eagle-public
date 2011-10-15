@@ -6,6 +6,8 @@
 * 使用したプロジェクトを公表する際に、この場所への言及。
 * 改良点、新しいファイル等のフィードバック。
 
+----
+
 * akizuki.lbr
  * C9767 --- [C9767コンデンサマイク](http://akizukidenshi.com/catalog/g/gP-01810/)
 * avr-isp.lbr
