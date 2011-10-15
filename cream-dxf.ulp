@@ -1,0 +1,176 @@
+//
+// Export the EAGLE cream layers to DXF for the Craft-ROBO cutting plotter.
+//
+// Copyright (c) 2010 Switch Science, Inc.
+//
+// Type "run cream-dxf" in the board editor window.
+// Options:
+//   -2    Cut two times for each lines.
+//   -c    Cut off corners of pads. The resulting pads are octagons.
+//
+
+// Configuration
+real SHRINK_WIDTH = 0.05;		// unit: mm
+real MIN_CORNERRADIUS = 0.05;		// unit: mm
+
+// Flags
+int CORNERCUT = 0;			// boolean
+int CUTTIMES = 1;
+
+string HEADER =
+"  0\n"
+"SECTION\n"
+"  2\n"
+"HEADER\n"
+"  9\n"
+"$ACADVER\n"
+"  1\n"
+"AC1013\n"
+"  9\n"
+"$MEASUREMENT\n"
+" 70\n"
+"     1\n"				// unit: mm
+"  0\n"
+"ENDSEC\n"
+"  0\n"
+"SECTION\n"
+"  2\n"
+"ENTITIES\n";
+
+string POLYLINE =
+"  0\n"
+"LWPOLYLINE\n"
+"  8\n"
+"0\n"					// layer
+" 62\n"
+"7\n"					// color
+" 90\n"
+"%d\n"					// number of points
+" 70\n"
+"%d\n";					// 0=open 1=close
+
+string POLYLINE_POINT =
+" 10\n"
+"%f\n"
+" 20\n"
+"%f\n";
+
+string LINE =
+"  0\n"
+"LINE\n"
+"  8\n"
+"0\n"					// layer
+" 10\n"
+"%f\n"					// start x
+" 20\n"
+"%f\n"					// start y
+" 11\n"
+"%f\n"					// end x
+" 21\n"
+"%f\n";					// end y
+
+string ARC =
+"  0\n"
+"ARC\n"
+"  8\n"
+"0\n"					// layer
+" 10\n"
+"%f\n"					// center x
+" 20\n"
+"%f\n"					// center y
+" 40\n"
+"%f\n"					// radius
+" 50\n"
+"%f\n"					// start angle
+" 51"
+"%f\n";					// end angle
+
+string CIRCLE =
+"  0\n"
+"CIRCLE\n"
+"  8\n"
+"0\n"					// layer
+" 10\n"
+"%f\n"					// center x
+" 20\n"
+"%f\n"					// center y
+" 40\n"
+"%f\n";					// radius
+
+string TRAILER =
+"  0\n"
+"ENDSEC\n"
+"  0\n"
+"EOF\n";
+
+int
+processLayer(UL_BOARD B, int layer) {
+  int count = 0;
+  int cream = (layer == LAYER_TOP ? LAYER_TCREAM : LAYER_BCREAM);
+  printf("%s", HEADER);
+  B.elements(E) {
+    E.package.contacts(C) {
+      if (C.smd && C.smd.layer == layer) {
+	real x = C.smd.x / 10000.0;
+	real y = C.smd.y / 10000.0;
+	real w = C.smd.dx[cream] / 10000.0 / 2 - SHRINK_WIDTH;
+	real h = C.smd.dy[cream] / 10000.0 / 2 - SHRINK_WIDTH;
+	real a = C.smd.angle / 180 * PI;
+	real wc = w * cos(a);
+	real hs = h * sin(a);
+	real ws = w * sin(a);
+	real hc = h * cos(a);
+
+	real r = max(min(w, h) * C.smd.roundness / 100, MIN_CORNERRADIUS);
+	if (CORNERCUT && h > r && w > r) {
+	  real rc = r * cos(a);
+	  real rs = r * sin(a);
+	  printf(POLYLINE, 8 * CUTTIMES + 1, 1);			// 1: closed
+	  printf(POLYLINE_POINT, x + wc, y + ws);			// ( w,    0)
+	  for (int i = 0; i < CUTTIMES; i++) {
+	    printf(POLYLINE_POINT, x + wc - hs + rs, y + ws + hc - rc);	// ( w,    h-r)
+	    printf(POLYLINE_POINT, x + wc - rc - hs, y + ws - rs + hc);	// ( w-r,  h)
+	    printf(POLYLINE_POINT, x - wc + rc - hs, y - ws + rs + hc);	// (-w+r,  h)
+	    printf(POLYLINE_POINT, x - wc - hs + rs, y - ws + hc - rc);	// (-w,    h-r)
+	    printf(POLYLINE_POINT, x - wc + hs - rs, y - ws - hc + rc);	// (-w,   -h+r)
+	    printf(POLYLINE_POINT, x - wc + rc + hs, y - ws + rs - hc);	// (-w+r, -h)
+	    printf(POLYLINE_POINT, x + wc - rc + hs, y + ws - rs - hc);	// ( w-r, -h)
+	    printf(POLYLINE_POINT, x + wc + hs - rs, y + ws - hc + rc);	// ( w,   -h+r)
+	  }
+	} else {
+	  printf(POLYLINE, 4 * CUTTIMES + 1, 1);			// 1: closed
+	  printf(POLYLINE_POINT, x + wc, y + ws);		// ( w,  0)
+	  for (int i = 0; i < CUTTIMES; i++) {
+	    printf(POLYLINE_POINT, x + wc - hs, y + ws + hc);	// ( w,  h)
+	    printf(POLYLINE_POINT, x - wc - hs, y - ws + hc);	// (-w,  h)
+	    printf(POLYLINE_POINT, x - wc + hs, y - ws - hc);	// (-w, -h)
+	    printf(POLYLINE_POINT, x + wc + hs, y + ws - hc);	// ( w, -h)
+	  }
+	}
+
+	count++;
+      }
+    }
+  }
+  printf("%s", TRAILER);
+  return count;
+}
+
+
+for (int i = 1; i < argc; i++) {
+  if (argv[i] == "-c")
+    CORNERCUT = 1;
+  else
+  if (argv[i] == "-2")
+    CUTTIMES = 2;
+}
+
+board(B) {
+  int t, b;
+  output(filesetext(B.name, "-tcream.dxf")) t = processLayer(B, LAYER_TOP);
+  output(filesetext(B.name, "-bcream.dxf")) b = processLayer(B, LAYER_BOTTOM);
+
+  string message;
+  sprintf(message, ";DXF files generated with %d+%d objects", t, b);
+  dlgMessageBox(message);
+}

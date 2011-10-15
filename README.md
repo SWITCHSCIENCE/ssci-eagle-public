@@ -14,6 +14,7 @@
  * C9767 --- [C9767コンデンサマイク](http://akizukidenshi.com/catalog/g/gP-01810/)
 * avr-isp.lbr
  * AVR-ISP-6PIN --- AVR用ISP端子。信号名を指定してあるので、配線が簡単。干渉する領域をマークしてあります。
+* cream-dxf.ulp --- 基板図からステンシルのDXFを吐き出すスクリプト。
 * generic.lbr
  * CAPACITOR --- 普通のコンデンサ。1608と2012があります。
  * CAPACITOR\_POL --- 電解コンデンサ。パナソニックのサイズに合わせてあります。
