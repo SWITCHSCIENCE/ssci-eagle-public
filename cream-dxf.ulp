@@ -135,8 +135,8 @@ processLayer(UL_BOARD B, int layer) {
       if (CORNERCUT && h > r && w > r) {
 	real rc = r * cos(a);
 	real rs = r * sin(a);
-	printf(POLYLINE, 8 * CUTTIMES + 1, 1);			// 1: closed
-	printf(POLYLINE_POINT, x + wc, y + ws);			// ( w,    0)
+	printf(POLYLINE, 8 * CUTTIMES + 1, 1);				// 1: closed
+	printf(POLYLINE_POINT, x + wc, y + ws);				// ( w,    0)
 	for (int i = 0; i < CUTTIMES; i++) {
 	  printf(POLYLINE_POINT, x + wc - hs + rs, y + ws + hc - rc);	// ( w,    h-r)
 	  printf(POLYLINE_POINT, x + wc - rc - hs, y + ws - rs + hc);	// ( w-r,  h)
@@ -149,7 +149,7 @@ processLayer(UL_BOARD B, int layer) {
 	}
       } else {
 	printf(POLYLINE, 4 * CUTTIMES + 1, 1);			// 1: closed
-	printf(POLYLINE_POINT, x + wc, y + ws);		// ( w,  0)
+	printf(POLYLINE_POINT, x + wc, y + ws);			// ( w,  0)
 	for (int i = 0; i < CUTTIMES; i++) {
 	  printf(POLYLINE_POINT, x + wc - hs, y + ws + hc);	// ( w,  h)
 	  printf(POLYLINE_POINT, x - wc - hs, y - ws + hc);	// (-w,  h)
