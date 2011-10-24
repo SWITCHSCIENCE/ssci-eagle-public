@@ -23,8 +23,10 @@
 * kyocera-elco.lbr
  * ELCO-6222-6 --- [京セラエルコFFCコネクタ0.5mmピッチ][] 6ピン
  * ELCO-6222-8 --- [京セラエルコFFCコネクタ0.5mmピッチ][] 8ピン
-
   [京セラエルコFFCコネクタ0.5mmピッチ]: http://www.kyocera-elco.com/jp/prdct/type/fpc/6223.html
+* chinese-con.lbr
+ * USB-A --- 中国製のデータシート無しのAコネクタ。点線で基板のエッジを記してあります。
+ * USB-B --- 中国製のデータシート無しのBコネクタ。MiniとMicroがあります。点線で基板のエッジを記してあります。
 
 ## ライブラリ作成のルール ##
 
