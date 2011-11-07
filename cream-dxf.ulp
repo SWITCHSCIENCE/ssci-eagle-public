@@ -170,7 +170,7 @@ for (int i = 1; i < argc; i++) {
   if (argv[i] == "-c")
     CORNERCUT = 1;
   else
-  if (argv[i] == "-2") ;
+  if (argv[i] == "-2")
     CUTTIMES = 2;
   else
   if (argv[i] == "-s") {
