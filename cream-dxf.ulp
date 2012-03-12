@@ -2,6 +2,7 @@
 // Export the EAGLE cream layers to DXF for the Craft-ROBO cutting plotter.
 //
 // Copyright (c) 2010 SWITCHSCIENCE, Inc.
+// Copyright (c) 2012 Yoshihiro TSUBOI
 //
 // Type "run cream-dxf" in the board editor window.
 // Options:
@@ -156,6 +157,32 @@ processLayer(UL_BOARD B, int layer) {
 	  printf(POLYLINE_POINT, x - wc + hs, y - ws - hc);	// (-w, -h)
 	  printf(POLYLINE_POINT, x + wc + hs, y + ws - hc);	// ( w, -h)
 	}
+      }
+      count++;
+    }
+    
+        E.package.rectangles(R) {
+      if (layer==LAYER_TOP && R.layer == 31) {
+      	printf(POLYLINE, 4 * CUTTIMES + 1, 1);			// 1: closed
+      	
+        real x = (R.x1+R.x2)/2 / 10000.0;
+        real y = (R.y1+R.y2)/2 / 10000.0;
+        real w = (R.x2-R.x1) / 10000.0 / 2 - SHRINK_WIDTH;
+        real h = (R.y2-R.y1) / 10000.0 / 2 - SHRINK_WIDTH;
+        real a = R.angle / 180 * PI;
+        real wc = w * cos(a);
+        real hs = h * sin(a);
+        real ws = w * sin(a);
+        real hc = h * cos(a);
+        
+	    printf(POLYLINE, 4 * CUTTIMES + 1, 1);			// 1: closed
+	    printf(POLYLINE_POINT, x + wc, y + ws);			// ( w,  0)
+	    for (int i = 0; i < CUTTIMES; i++) {
+          printf(POLYLINE_POINT, x + wc - hs, y + ws + hc);	// ( w,  h)
+          printf(POLYLINE_POINT, x - wc - hs, y - ws + hc);	// (-w,  h)
+          printf(POLYLINE_POINT, x - wc + hs, y - ws - hc);	// (-w, -h)
+          printf(POLYLINE_POINT, x + wc + hs, y + ws - hc);	// ( w, -h)
+        }
       }
 
       count++;
