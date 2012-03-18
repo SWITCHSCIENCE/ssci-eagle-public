@@ -6,8 +6,9 @@
 //
 // Type "run cream-dxf" in the board editor window.
 // Options:
-//   -2    Cut two times for each lines.
-//   -c    Cut off corners of pads. The resulting pads are octagons.
+//   -2        Cut two times for each lines.
+//   -c        Cut off corners of pads. The resulting pads are octagons.
+//   -s width  Shrink pads by "width" (float mm).
 //
 
 // Configuration
@@ -26,7 +27,7 @@ string HEADER =
 "  9\n"
 "$ACADVER\n"
 "  1\n"
-"AC1013\n"
+"AC1009\n"
 "  9\n"
 "$MEASUREMENT\n"
 " 70\n"
@@ -161,7 +162,7 @@ processLayer(UL_BOARD B, int layer) {
       count++;
     }
     
-        E.package.rectangles(R) {
+    E.package.rectangles(R) {
       if (layer==LAYER_TOP && R.layer == 31) {
       	printf(POLYLINE, 4 * CUTTIMES + 1, 1);			// 1: closed
       	
@@ -175,14 +176,14 @@ processLayer(UL_BOARD B, int layer) {
         real ws = w * sin(a);
         real hc = h * cos(a);
         
-	    printf(POLYLINE, 4 * CUTTIMES + 1, 1);			// 1: closed
-	    printf(POLYLINE_POINT, x + wc, y + ws);			// ( w,  0)
-	    for (int i = 0; i < CUTTIMES; i++) {
-          printf(POLYLINE_POINT, x + wc - hs, y + ws + hc);	// ( w,  h)
-          printf(POLYLINE_POINT, x - wc - hs, y - ws + hc);	// (-w,  h)
-          printf(POLYLINE_POINT, x - wc + hs, y - ws - hc);	// (-w, -h)
-          printf(POLYLINE_POINT, x + wc + hs, y + ws - hc);	// ( w, -h)
-        }
+	printf(POLYLINE, 4 * CUTTIMES + 1, 1);			// 1: closed
+	printf(POLYLINE_POINT, x + wc, y + ws);			// ( w,  0)
+	for (int i = 0; i < CUTTIMES; i++) {
+	  printf(POLYLINE_POINT, x + wc - hs, y + ws + hc);	// ( w,  h)
+	  printf(POLYLINE_POINT, x - wc - hs, y - ws + hc);	// (-w,  h)
+	  printf(POLYLINE_POINT, x - wc + hs, y - ws - hc);	// (-w, -h)
+	  printf(POLYLINE_POINT, x + wc + hs, y + ws - hc);	// ( w, -h)
+	}
       }
 
       count++;
