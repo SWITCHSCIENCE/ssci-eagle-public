@@ -208,8 +208,11 @@ board(B) {
         dlgRealEdit(cut_width, 0.00, 0.10);
       };
     };
-    dlgPushButton("+&Run") dlgAccept();
-    dlgPushButton("-&Cancel") dlgReject();
+    dlgHBoxLayout {
+      dlgStretch(1);
+      dlgPushButton("-&Cancel") dlgReject();
+      dlgPushButton("+&Run") dlgAccept();
+    };
   };
   
   CUTTIMES = cut_two ? 2 : 1;
