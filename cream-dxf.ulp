@@ -193,28 +193,41 @@ processLayer(UL_BOARD B, int layer) {
   return count;
 }
 
-
-for (int i = 1; i < argc; i++) {
-  if (argv[i] == "-c")
-    CORNERCUT = 1;
-  else
-  if (argv[i] == "-2")
-    CUTTIMES = 2;
-  else
-  if (argv[i] == "-s") {
-    i++;
-    if (i == argc)
-      break;
-    SHRINK_WIDTH = strtod(argv[i]);
-  }
-}
-
 board(B) {
-  int t, b;
-  output(filesetext(B.name, "-tcream.dxf")) t = processLayer(B, LAYER_TOP);
-  output(filesetext(B.name, "-bcream.dxf")) b = processLayer(B, LAYER_BOTTOM);
 
-  string message;
-  sprintf(message, ";DXF files generated with %d+%d objects", t, b);	// ';' for information
-  dlgMessageBox(message);
+  int cut_two = 1;
+  int cut_corner = 1;
+  real cut_width = 0.05;
+  
+  int run = dlgDialog("Test"){
+    dlgGroup("Orientation") {
+      dlgCheckBox("Cut two times for each lines.", cut_two);
+      dlgCheckBox("Cut off corners of pads. The resulting pads are octagons.", cut_corner);
+      dlgHBoxLayout {
+        dlgLabel("Enter the width (float mm) to shrink pads by.");
+        dlgRealEdit(cut_width, 0.00, 0.10);
+      };
+    };
+    dlgPushButton("+&Run") dlgAccept();
+    dlgPushButton("-&Cancel") dlgReject();
+  };
+  
+  CUTTIMES = cut_two ? 2 : 1;
+  CORNERCUT = cut_corner;
+  SHRINK_WIDTH = cut_width;
+  
+  output("debug.log"){
+    printf("%d, %d, %d, %f\n", run, CUTTIMES, CORNERCUT, SHRINK_WIDTH);
+  }
+  
+  if (run == 1) {
+    int t, b;
+    output(filesetext(B.name, "-tcream.dxf")) t = processLayer(B, LAYER_TOP);
+    output(filesetext(B.name, "-bcream.dxf")) b = processLayer(B, LAYER_BOTTOM);
+
+    string message;
+    sprintf(message, ";DXF files generated with %d+%d objects", t, b);	// ';' for information
+    dlgMessageBox(message);
+  }
+  
 }
