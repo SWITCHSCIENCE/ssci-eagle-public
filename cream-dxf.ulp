@@ -4,12 +4,6 @@
 // Copyright (c) 2010 SWITCHSCIENCE, Inc.
 // Copyright (c) 2012 Yoshihiro TSUBOI
 //
-// Type "run cream-dxf" in the board editor window.
-// Options:
-//   -2        Cut two times for each lines.
-//   -c        Cut off corners of pads. The resulting pads are octagons.
-//   -s width  Shrink pads by "width" (float mm).
-//
 
 // Configuration
 real SHRINK_WIDTH = 0.00;		// unit: mm
