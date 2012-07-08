@@ -8,10 +8,12 @@
 // Configuration
 real SHRINK_WIDTH = 0.00;		// unit: mm
 real MIN_CORNERRADIUS = 0.05;		// unit: mm
+real E6_SCALE = 32; // The internal resolution of EAGLE 6 has been increased by a factor of 32. For detail, see UPDATE_en.txt
 
 // Flags
 int CORNERCUT = 0;			// boolean
 int CUTTIMES = 1;
+int EAGLE6 = 0;
 
 string HEADER =
 "  0\n"
@@ -121,6 +123,12 @@ processLayer(UL_BOARD B, int layer) {
       real y = C.smd.y / 10000.0;
       real w = C.smd.dx[cream] / 10000.0 / 2 - SHRINK_WIDTH;
       real h = C.smd.dy[cream] / 10000.0 / 2 - SHRINK_WIDTH;
+    if (EAGLE6 == 1) {
+      x = x / E6_SCALE;
+      y = y / E6_SCALE;
+      w = w / E6_SCALE;
+      h = h / E6_SCALE;
+    }
       real a = C.smd.angle / 180 * PI;
       real wc = w * cos(a);
       real hs = h * sin(a);
@@ -164,6 +172,12 @@ processLayer(UL_BOARD B, int layer) {
         real y = (R.y1+R.y2)/2 / 10000.0;
         real w = (R.x2-R.x1) / 10000.0 / 2 - SHRINK_WIDTH;
         real h = (R.y2-R.y1) / 10000.0 / 2 - SHRINK_WIDTH;
+      if (EAGLE6 == 1) {
+        x = x / E6_SCALE;
+        y = y / E6_SCALE;
+        w = w / E6_SCALE;
+        h = h / E6_SCALE;
+      }
         real a = R.angle / 180 * PI;
         real wc = w * cos(a);
         real hs = h * sin(a);
@@ -190,10 +204,14 @@ processLayer(UL_BOARD B, int layer) {
 board(B) {
 
   int cut_two = 1;
-  int cut_corner = 1;
+  int cut_corner = 0;
+  int e6_mode = 0;
+  if (EAGLE_VERSION >= 6.0) {
+	  e6_mode = 1;
+  };  
   real cut_width = 0.05;
   
-  int run = dlgDialog("Test"){
+  int run = dlgDialog("cream-dxf"){
     dlgGroup("Orientation") {
       dlgCheckBox("Cut two times for each lines.", cut_two);
       dlgCheckBox("Cut off corners of pads. The resulting pads are octagons.", cut_corner);
@@ -211,11 +229,14 @@ board(B) {
   
   CUTTIMES = cut_two ? 2 : 1;
   CORNERCUT = cut_corner;
+  EAGLE6 = e6_mode;
   SHRINK_WIDTH = cut_width;
-  
+
+/*  
   output("debug.log"){
     printf("%d, %d, %d, %f\n", run, CUTTIMES, CORNERCUT, SHRINK_WIDTH);
   }
+*/
   
   if (run == 1) {
     int t, b;
