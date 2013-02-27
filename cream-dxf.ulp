@@ -3,7 +3,7 @@
 //
 // Copyright (c) 2010 SWITCHSCIENCE, Inc.
 // Copyright (c) 2012 Yoshihiro TSUBOI
-//
+// Copyright (c) 2013 Yuuki Uno, NYAMFG.
 
 // Configuration
 real SHRINK_WIDTH = 0.00;		// unit: mm
@@ -14,6 +14,7 @@ real E6_SCALE = 32; // The internal resolution of EAGLE 6 has been increased by 
 int CORNERCUT = 0;			// boolean
 int CUTTIMES = 1;
 int EAGLE6 = 0;
+int IGNORESTOP = 1;
 
 string HEADER =
 "  0\n"
@@ -112,7 +113,7 @@ processLayer(UL_BOARD B, int layer) {
 	continue;
       if (C.smd.layer != layer)
 	continue;
-      if (!(C.smd.flags & SMD_FLAG_STOP))
+      if  (!((C.smd.flags & SMD_FLAG_STOP) || !IGNORESTOP))
 	continue;
       if (!(C.smd.flags & SMD_FLAG_CREAM))
 	continue;
@@ -206,6 +207,8 @@ board(B) {
   int cut_two = 1;
   int cut_corner = 0;
   int e6_mode = 0;
+  int ignore_stop = 1;
+  
   if (EAGLE_VERSION >= 6.0) {
 	  e6_mode = 1;
   };  
@@ -215,6 +218,7 @@ board(B) {
     dlgGroup("Orientation") {
       dlgCheckBox("Cut two times for each lines.", cut_two);
       dlgCheckBox("Cut off corners of pads. The resulting pads are octagons.", cut_corner);
+      dlgCheckBox("Ignore pads with no stop flag.", ignore_stop);
       dlgHBoxLayout {
         dlgLabel("Enter the width (float mm) to shrink pads by.");
         dlgRealEdit(cut_width, 0.00, 0.10);
@@ -231,7 +235,8 @@ board(B) {
   CORNERCUT = cut_corner;
   EAGLE6 = e6_mode;
   SHRINK_WIDTH = cut_width;
-
+  IGNORESTOP = ignore_stop;
+  
 /*  
   output("debug.log"){
     printf("%d, %d, %d, %f\n", run, CUTTIMES, CORNERCUT, SHRINK_WIDTH);
