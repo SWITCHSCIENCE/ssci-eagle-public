@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.2">
+<eagle version="6.4">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -70,8 +70,8 @@
 <pad name="VCC" x="1.27" y="2.54" drill="1.016" shape="octagon" rot="R270"/>
 <pad name="MOSI" x="1.27" y="0" drill="1.016" shape="octagon" rot="R270"/>
 <pad name="GND" x="1.27" y="-2.54" drill="1.016" shape="octagon" rot="R270"/>
-<text x="-2.54" y="4.191" size="1.27" layer="25" ratio="10">&gt;NAME</text>
-<text x="-1.27" y="-5.08" size="1.27" layer="21">&gt;VALUE</text>
+<text x="-1.905" y="3.81" size="1.016" layer="25" ratio="10">&gt;NAME</text>
+<text x="-1.905" y="-5.08" size="1.016" layer="27">&gt;VALUE</text>
 <rectangle x1="-1.524" y1="-0.254" x2="-1.016" y2="0.254" layer="51" rot="R270"/>
 <rectangle x1="-1.524" y1="2.286" x2="-1.016" y2="2.794" layer="51" rot="R270"/>
 <rectangle x1="-1.524" y1="-2.794" x2="-1.016" y2="-2.286" layer="51" rot="R270"/>
@@ -92,7 +92,7 @@
 <pad name="MOSI" x="1.27" y="0" drill="1.016" shape="octagon" rot="R270"/>
 <pad name="GND" x="1.27" y="-2.54" drill="1.016" shape="octagon" rot="R270"/>
 <text x="-2.54" y="4.191" size="1.27" layer="25" ratio="10">&gt;NAME</text>
-<text x="-2.54" y="-5.08" size="1.27" layer="21">&gt;VALUE</text>
+<text x="-2.54" y="-5.08" size="1.27" layer="27">&gt;VALUE</text>
 <rectangle x1="-1.524" y1="-0.254" x2="-1.016" y2="0.254" layer="51" rot="R270"/>
 <rectangle x1="-1.524" y1="2.286" x2="-1.016" y2="2.794" layer="51" rot="R270"/>
 <rectangle x1="-1.524" y1="-2.794" x2="-1.016" y2="-2.286" layer="51" rot="R270"/>
@@ -146,6 +146,7 @@
 <vertex x="-3.81" y="2.54"/>
 <vertex x="-5.08" y="3.81"/>
 </polygon>
+<text x="-5.08" y="-7.62" size="1.778" layer="96">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
