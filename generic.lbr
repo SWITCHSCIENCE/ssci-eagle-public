@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.4">
+<eagle version="6.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -453,6 +453,27 @@ e.g. Nichicon F93 series Tantalum Cap. A-case</description>
 <text x="2.54" y="-1.27" size="1.016" layer="21" font="vector">+</text>
 <rectangle x1="0.8" y1="-0.8" x2="1.65" y2="0.8" layer="51"/>
 </package>
+<package name="LED3528">
+<smd name="1" x="-1.6" y="0" dx="2.6" dy="1.9" layer="1" rot="R270"/>
+<smd name="2" x="1.6" y="0" dx="2.6" dy="1.9" layer="1" rot="R270"/>
+<wire x1="0.5" y1="0" x2="-0.4" y2="0.9" width="0.127" layer="21"/>
+<wire x1="-0.4" y1="0.9" x2="-0.4" y2="-0.9" width="0.127" layer="21"/>
+<wire x1="-0.4" y1="-0.9" x2="0.5" y2="0" width="0.127" layer="21"/>
+<wire x1="1.6" y1="1.4" x2="1.6" y2="1.1" width="0.127" layer="51"/>
+<wire x1="1.6" y1="1.1" x2="1.6" y2="-1.1" width="0.127" layer="51"/>
+<wire x1="1.6" y1="-1.1" x2="1.6" y2="-1.4" width="0.127" layer="51"/>
+<wire x1="1.6" y1="-1.4" x2="-1.6" y2="-1.4" width="0.127" layer="51"/>
+<wire x1="-1.6" y1="-1.4" x2="-1.6" y2="-1.1" width="0.127" layer="51"/>
+<wire x1="-1.6" y1="-1.1" x2="-1.6" y2="1.1" width="0.127" layer="51"/>
+<wire x1="-1.6" y1="1.1" x2="-1.6" y2="1.4" width="0.127" layer="51"/>
+<wire x1="-1.6" y1="1.4" x2="1.6" y2="1.4" width="0.127" layer="51"/>
+<wire x1="1.6" y1="1.1" x2="1.8" y2="1.1" width="0.127" layer="51"/>
+<wire x1="1.8" y1="1.1" x2="1.8" y2="-1.1" width="0.127" layer="51"/>
+<wire x1="1.8" y1="-1.1" x2="1.6" y2="-1.1" width="0.127" layer="51"/>
+<wire x1="-1.6" y1="1.1" x2="-1.8" y2="1.1" width="0.127" layer="51"/>
+<wire x1="-1.8" y1="1.1" x2="-1.8" y2="-1.1" width="0.127" layer="51"/>
+<wire x1="-1.8" y1="-1.1" x2="-1.6" y2="-1.1" width="0.127" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="CAPACITOR">
@@ -539,6 +560,15 @@ e.g. Nichicon F93 series Tantalum Cap. A-case</description>
 <connects>
 <connect gate="G$1" pin="A" pad="A"/>
 <connect gate="G$1" pin="K" pad="K"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="3528" package="LED3528">
+<connects>
+<connect gate="G$1" pin="A" pad="1"/>
+<connect gate="G$1" pin="K" pad="2"/>
 </connects>
 <technologies>
 <technology name=""/>
