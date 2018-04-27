@@ -4,6 +4,8 @@
 // Copyright (c) 2010 SWITCHSCIENCE, Inc.
 // Copyright (c) 2012 Yoshihiro TSUBOI
 // Copyright (c) 2013 Yuuki Uno, NYAMFG.
+// Copyright (c) 2015 Junichi Akita (akita11), added board outline cut
+// Copyright (c) 2018 Junichi Akita (akita11), board outline as DIMENSION wires
 
 // Configuration
 real SHRINK_WIDTH = 0.00;		// unit: mm
@@ -15,6 +17,7 @@ int CORNERCUT = 0;			// boolean
 int CUTTIMES = 1;
 int EAGLE6 = 0;
 int IGNORESTOP = 1;
+int OUTLINE = 0;
 
 string HEADER =
 "  0\n"
@@ -107,6 +110,7 @@ processLayer(UL_BOARD B, int layer) {
   int count = 0;
   int cream = (layer == LAYER_TOP ? LAYER_TCREAM : LAYER_BCREAM);
   printf("%s", HEADER);
+  
   B.elements(E) {
     E.package.contacts(C) {
       if (!C.smd)
@@ -198,6 +202,29 @@ processLayer(UL_BOARD B, int layer) {
       count++;
     }
   }
+  // board outline
+  if (OUTLINE){
+    B.wires(W){
+      if (W.layer == LAYER_DIMENSION){
+        real x1 = W.x1 / 10000.0;
+        real y1 = W.y1 / 10000.0;
+        real x2 = W.x2 / 10000.0;
+        real y2 = W.y2 / 10000.0;
+        if (EAGLE6 == 1) {
+          x1 = x1 / E6_SCALE;
+          y1 = y1 / E6_SCALE;
+          x2 = x2 / E6_SCALE;
+          y2 = y2 / E6_SCALE;
+        }
+        printf(POLYLINE, 2*CUTTIMES + 1, 1);
+        for (int i = 0; i < CUTTIMES; i++) {
+          printf(POLYLINE_POINT, x1, y1);
+          printf(POLYLINE_POINT, x2, y2);
+        }
+        count++;
+      }
+    }
+  }
   printf("%s", TRAILER);
   return count;
 }
@@ -208,7 +235,7 @@ board(B) {
   int cut_corner = 0;
   int e6_mode = 0;
   int ignore_stop = 1;
-  
+  int outline = 0;
   if (EAGLE_VERSION >= 6.0) {
 	  e6_mode = 1;
   };  
@@ -219,6 +246,7 @@ board(B) {
       dlgCheckBox("Cut two times for each lines.", cut_two);
       dlgCheckBox("Cut off corners of pads. The resulting pads are octagons.", cut_corner);
       dlgCheckBox("Ignore pads with no stop flag.", ignore_stop);
+      dlgCheckBox("Include board outline.", outline);
       dlgHBoxLayout {
         dlgLabel("Enter the width (float mm) to shrink pads by.");
         dlgRealEdit(cut_width, 0.00, 0.10);
@@ -236,7 +264,7 @@ board(B) {
   EAGLE6 = e6_mode;
   SHRINK_WIDTH = cut_width;
   IGNORESTOP = ignore_stop;
-  
+  OUTLINE = outline;
 /*  
   output("debug.log"){
     printf("%d, %d, %d, %f\n", run, CUTTIMES, CORNERCUT, SHRINK_WIDTH);
@@ -254,3 +282,4 @@ board(B) {
   }
   
 }
+
