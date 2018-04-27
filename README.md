@@ -27,8 +27,12 @@
 * chinese-con.lbr
  * USB-A --- 中国製のデータシート無しのAコネクタ。点線で基板のエッジを記してあります。
  * USB-B --- 中国製のデータシート無しのBコネクタ。MiniとMicroがあります。点線で基板のエッジを記してあります。
+* taiyoyuden.lbr
+ * EYSGCNZXX --- 太陽誘電のBLEモジュール
 * Raspberry_Pi_B+.lbr
  * HAT_BOARD --- Raspberry Pi model B+用のHAT(Hardware Attached Top) board。
+* milling.lbr
+ * MILLING ---　スイッチサイエンスPCB用メッキ付き長穴。穴のサイズは2.54 mm x 1 mm。 
 
 ## ライブラリ作成のルール ##
 
