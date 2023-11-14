@@ -608,46 +608,46 @@ AKIZUKI DENSHI : P-08071&lt;br&gt;</description>
 </symbol>
 <symbol name="HEAD-PHONES+SW">
 <description>head phones with switch</description>
-<pin name="1" x="-7.62" y="5.08" visible="pad" length="short"/>
-<pin name="2" x="-7.62" y="2.54" visible="pad" length="short"/>
-<pin name="3" x="-7.62" y="0" visible="pad" length="short"/>
-<pin name="4" x="-7.62" y="-2.54" visible="pad" length="short"/>
-<pin name="5" x="-7.62" y="-5.08" visible="pad" length="short"/>
-<wire x1="-5.08" y1="-5.08" x2="0" y2="-5.08" width="0.1524" layer="94"/>
-<wire x1="0" y1="-5.08" x2="2.54" y2="-5.08" width="0.1524" layer="94"/>
-<wire x1="2.54" y1="-5.08" x2="3.81" y2="-3.81" width="0.1524" layer="94"/>
-<wire x1="3.81" y1="-3.81" x2="5.08" y2="-5.08" width="0.1524" layer="94"/>
-<wire x1="-5.08" y1="-2.54" x2="0" y2="-2.54" width="0.1524" layer="94"/>
-<wire x1="0" y1="-2.54" x2="0" y2="-5.08" width="0.1524" layer="94"/>
+<pin name="1" x="-2.54" y="5.08" visible="pad" length="short"/>
+<pin name="2" x="-2.54" y="2.54" visible="pad" length="short"/>
+<pin name="3" x="-2.54" y="0" visible="pad" length="short"/>
+<pin name="4" x="-2.54" y="-2.54" visible="pad" length="short"/>
+<pin name="5" x="-2.54" y="-5.08" visible="pad" length="short"/>
+<wire x1="0" y1="-5.08" x2="5.08" y2="-5.08" width="0.1524" layer="94"/>
+<wire x1="5.08" y1="-5.08" x2="7.62" y2="-5.08" width="0.1524" layer="94"/>
+<wire x1="7.62" y1="-5.08" x2="8.89" y2="-3.81" width="0.1524" layer="94"/>
+<wire x1="8.89" y1="-3.81" x2="10.16" y2="-5.08" width="0.1524" layer="94"/>
+<wire x1="0" y1="-2.54" x2="5.08" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="5.08" y1="-2.54" x2="5.08" y2="-5.08" width="0.1524" layer="94"/>
 <polygon width="0.1524" layer="94">
-<vertex x="0" y="-5.08"/>
-<vertex x="0.508" y="-4.064"/>
-<vertex x="0" y="-4.064"/>
+<vertex x="5.08" y="-5.08"/>
+<vertex x="5.588" y="-4.064"/>
+<vertex x="5.08" y="-4.064"/>
 </polygon>
-<wire x1="-5.08" y1="0" x2="0" y2="0" width="0.1524" layer="94"/>
-<wire x1="0" y1="0" x2="0" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="0" y1="0" x2="5.08" y2="0" width="0.1524" layer="94"/>
+<wire x1="5.08" y1="0" x2="5.08" y2="2.54" width="0.1524" layer="94"/>
 <polygon width="0.1524" layer="94">
-<vertex x="0" y="2.54"/>
-<vertex x="0" y="1.524"/>
-<vertex x="0.508" y="1.524"/>
+<vertex x="5.08" y="2.54"/>
+<vertex x="5.08" y="1.524"/>
+<vertex x="5.588" y="1.524"/>
 </polygon>
-<wire x1="-5.08" y1="2.54" x2="7.62" y2="2.54" width="0.1524" layer="94"/>
-<wire x1="7.62" y1="2.54" x2="8.89" y2="1.27" width="0.1524" layer="94"/>
-<wire x1="8.89" y1="1.27" x2="10.16" y2="2.54" width="0.1524" layer="94"/>
-<wire x1="12.7" y1="2.54" x2="12.7" y2="-5.08" width="0.1524" layer="94"/>
-<wire x1="12.7" y1="-5.08" x2="15.24" y2="-5.08" width="0.1524" layer="94"/>
-<wire x1="15.24" y1="-5.08" x2="15.24" y2="2.54" width="0.1524" layer="94"/>
-<wire x1="15.24" y1="2.54" x2="13.97" y2="2.54" width="0.1524" layer="94"/>
-<wire x1="13.97" y1="2.54" x2="12.7" y2="2.54" width="0.1524" layer="94"/>
-<wire x1="-5.08" y1="5.08" x2="13.97" y2="5.08" width="0.1524" layer="94"/>
-<wire x1="13.97" y1="5.08" x2="13.97" y2="2.54" width="0.1524" layer="94"/>
-<wire x1="-5.08" y1="7.62" x2="-5.08" y2="-7.62" width="0.1524" layer="94"/>
-<wire x1="-5.08" y1="-7.62" x2="15.24" y2="-7.62" width="0.1524" layer="94"/>
-<wire x1="15.24" y1="-7.62" x2="15.24" y2="7.62" width="0.1524" layer="94"/>
-<wire x1="15.24" y1="7.62" x2="-5.08" y2="7.62" width="0.1524" layer="94"/>
-<text x="-5.08" y="8.89" size="1.778" layer="94" align="center-left">head phones</text>
-<text x="-5.08" y="-10.16" size="1.778" layer="95">&gt;NAME</text>
-<text x="-5.08" y="-12.7" size="1.778" layer="96">&gt;VALUE</text>
+<wire x1="0" y1="2.54" x2="12.7" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="12.7" y1="2.54" x2="13.97" y2="1.27" width="0.1524" layer="94"/>
+<wire x1="13.97" y1="1.27" x2="15.24" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="17.78" y1="2.54" x2="17.78" y2="-5.08" width="0.1524" layer="94"/>
+<wire x1="17.78" y1="-5.08" x2="20.32" y2="-5.08" width="0.1524" layer="94"/>
+<wire x1="20.32" y1="-5.08" x2="20.32" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="20.32" y1="2.54" x2="19.05" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="19.05" y1="2.54" x2="17.78" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="0" y1="5.08" x2="19.05" y2="5.08" width="0.1524" layer="94"/>
+<wire x1="19.05" y1="5.08" x2="19.05" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="0" y1="7.62" x2="0" y2="-7.62" width="0.1524" layer="94"/>
+<wire x1="0" y1="-7.62" x2="20.32" y2="-7.62" width="0.1524" layer="94"/>
+<wire x1="20.32" y1="-7.62" x2="20.32" y2="7.62" width="0.1524" layer="94"/>
+<wire x1="20.32" y1="7.62" x2="0" y2="7.62" width="0.1524" layer="94"/>
+<text x="0" y="8.89" size="1.778" layer="94" align="center-left">head phones</text>
+<text x="0" y="-10.16" size="1.778" layer="95">&gt;NAME</text>
+<text x="0" y="-12.7" size="1.778" layer="96">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -851,7 +851,7 @@ AKIZUKI DENSHI : P-08071&lt;br&gt;</description>
 <description>&lt;b&gt;MJ-495-A&lt;/b&gt; head phones Jack with switch (Female)&lt;br&gt;
 AVVICON elec. (AKIZUKI DENSHI) : C-12478&lt;br&gt;</description>
 <gates>
-<gate name="G$1" symbol="HEAD-PHONES+SW" x="5.08" y="0"/>
+<gate name="G$1" symbol="HEAD-PHONES+SW" x="0" y="0"/>
 </gates>
 <devices>
 <device name="" package="MJ-495-A">
