@@ -826,7 +826,7 @@ PTC (AKIZUKI DENSHI) : I-17061</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="TMHU27">
+<deviceset name="TMHU27" prefix="SW">
 <description>&lt;b&gt;TMHU27&lt;/b&gt; lever switch&lt;br&gt;
 AKIZUKI DENSHI : P-08071&lt;br&gt;</description>
 <gates>
