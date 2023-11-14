@@ -567,44 +567,44 @@ AKIZUKI DENSHI : I-05738&lt;br&gt;</description>
 <symbol name="TMHU27">
 <description>&lt;b&gt;TMHU27&lt;/b&gt; lever switch&lt;br&gt;
 AKIZUKI DENSHI : P-08071&lt;br&gt;</description>
-<circle x="-4.318" y="0" radius="0.508" width="0.254" layer="94"/>
-<circle x="-4.318" y="5.08" radius="0.508" width="0.254" layer="94"/>
-<circle x="-7.112" y="5.08" radius="0.508" width="0.254" layer="94"/>
-<circle x="-7.112" y="0" radius="0.508" width="0.254" layer="94"/>
-<circle x="-7.112" y="-5.08" radius="0.508" width="0.254" layer="94"/>
-<circle x="-4.318" y="-5.08" radius="0.508" width="0.254" layer="94"/>
-<circle x="-2.54" y="5.08" radius="0.359209375" width="0" layer="94"/>
-<circle x="-2.54" y="0" radius="0.359209375" width="0" layer="94"/>
-<wire x1="5.08" y1="-2.54" x2="3.77" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="3.77" y1="-2.54" x2="1.27" y2="-0.04" width="0.254" layer="94" curve="-90"/>
-<wire x1="1.27" y1="-0.04" x2="1.27" y2="0.04" width="0.254" layer="94"/>
-<wire x1="1.27" y1="0.04" x2="3.77" y2="2.54" width="0.254" layer="94" curve="-90"/>
-<wire x1="3.77" y1="2.54" x2="5.08" y2="2.54" width="0.254" layer="94"/>
-<wire x1="5.08" y1="2.54" x2="5.08" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="0" y1="0" x2="0" y2="-0.0254" width="1.27" layer="94"/>
-<wire x1="0" y1="-0.0254" x2="3.7846" y2="-3.81" width="1.27" layer="94" curve="90"/>
-<wire x1="3.7846" y1="-3.81" x2="3.81" y2="-3.81" width="1.27" layer="94"/>
-<wire x1="0" y1="0" x2="0" y2="0.0254" width="1.27" layer="94"/>
-<wire x1="0" y1="0.0254" x2="3.7846" y2="3.81" width="1.27" layer="94" curve="-90"/>
-<wire x1="3.7846" y1="3.81" x2="3.81" y2="3.81" width="1.27" layer="94"/>
-<wire x1="-0.254" y1="0.762" x2="-0.254" y2="-0.762" width="1.778" layer="94"/>
-<wire x1="-3.81" y1="-5.08" x2="-2.54" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="-5.08" x2="-2.54" y2="0" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="0" x2="-2.54" y2="5.08" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="5.08" x2="5.08" y2="5.08" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="5.08" x2="-3.81" y2="5.08" width="0.254" layer="94"/>
-<wire x1="-3.81" y1="0" x2="-2.54" y2="0" width="0.254" layer="94"/>
-<wire x1="-6.604" y1="5.334" x2="-4.572" y2="6.604" width="0.254" layer="94"/>
-<wire x1="-6.604" y1="0.254" x2="-4.572" y2="1.524" width="0.254" layer="94"/>
-<wire x1="-6.604" y1="-4.826" x2="-4.572" y2="-3.556" width="0.254" layer="94"/>
-<pin name="1" x="-10.16" y="-5.08" visible="pad" length="short"/>
-<pin name="2" x="-10.16" y="5.08" visible="pad" length="short"/>
-<pin name="C" x="7.62" y="5.08" visible="pad" length="short" rot="R180"/>
-<pin name="E" x="7.62" y="-5.08" visible="pad" length="short" rot="R180"/>
-<pin name="T" x="-10.16" y="0" visible="pad" length="short"/>
-<text x="-0.254" y="8.89" size="1.778" layer="94" align="center">TMHU27</text>
-<text x="-10.16" y="-10.16" size="1.778" layer="95">&gt;NAME</text>
-<text x="-10.16" y="-12.7" size="1.778" layer="96">&gt;VALUE</text>
+<circle x="0.762" y="0" radius="0.508" width="0.254" layer="94"/>
+<circle x="0.762" y="5.08" radius="0.508" width="0.254" layer="94"/>
+<circle x="-2.032" y="5.08" radius="0.508" width="0.254" layer="94"/>
+<circle x="-2.032" y="0" radius="0.508" width="0.254" layer="94"/>
+<circle x="-2.032" y="-5.08" radius="0.508" width="0.254" layer="94"/>
+<circle x="0.762" y="-5.08" radius="0.508" width="0.254" layer="94"/>
+<circle x="2.54" y="5.08" radius="0.359209375" width="0" layer="94"/>
+<circle x="2.54" y="0" radius="0.359209375" width="0" layer="94"/>
+<wire x1="10.16" y1="-2.54" x2="8.85" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="8.85" y1="-2.54" x2="6.35" y2="-0.04" width="0.254" layer="94" curve="-90"/>
+<wire x1="6.35" y1="-0.04" x2="6.35" y2="0.04" width="0.254" layer="94"/>
+<wire x1="6.35" y1="0.04" x2="8.85" y2="2.54" width="0.254" layer="94" curve="-90"/>
+<wire x1="8.85" y1="2.54" x2="10.16" y2="2.54" width="0.254" layer="94"/>
+<wire x1="10.16" y1="2.54" x2="10.16" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="5.08" y1="0" x2="5.08" y2="-0.0254" width="1.27" layer="94"/>
+<wire x1="5.08" y1="-0.0254" x2="8.8646" y2="-3.81" width="1.27" layer="94" curve="90"/>
+<wire x1="8.8646" y1="-3.81" x2="8.89" y2="-3.81" width="1.27" layer="94"/>
+<wire x1="5.08" y1="0" x2="5.08" y2="0.0254" width="1.27" layer="94"/>
+<wire x1="5.08" y1="0.0254" x2="8.8646" y2="3.81" width="1.27" layer="94" curve="-90"/>
+<wire x1="8.8646" y1="3.81" x2="8.89" y2="3.81" width="1.27" layer="94"/>
+<wire x1="4.826" y1="0.762" x2="4.826" y2="-0.762" width="1.778" layer="94"/>
+<wire x1="1.27" y1="-5.08" x2="2.54" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-5.08" x2="2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="2.54" y1="0" x2="2.54" y2="5.08" width="0.254" layer="94"/>
+<wire x1="2.54" y1="5.08" x2="10.16" y2="5.08" width="0.254" layer="94"/>
+<wire x1="2.54" y1="5.08" x2="1.27" y2="5.08" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="-1.524" y1="5.334" x2="0.508" y2="6.604" width="0.254" layer="94"/>
+<wire x1="-1.524" y1="0.254" x2="0.508" y2="1.524" width="0.254" layer="94"/>
+<wire x1="-1.524" y1="-4.826" x2="0.508" y2="-3.556" width="0.254" layer="94"/>
+<pin name="1" x="-5.08" y="-5.08" visible="pad" length="short"/>
+<pin name="2" x="-5.08" y="5.08" visible="pad" length="short"/>
+<pin name="C" x="12.7" y="5.08" visible="pad" length="short" rot="R180"/>
+<pin name="E" x="12.7" y="-5.08" visible="pad" length="short" rot="R180"/>
+<pin name="T" x="-5.08" y="0" visible="pad" length="short"/>
+<text x="4.826" y="8.89" size="1.778" layer="94" align="center">TMHU27</text>
+<text x="-5.08" y="-10.16" size="1.778" layer="95">&gt;NAME</text>
+<text x="-5.08" y="-12.7" size="1.778" layer="96">&gt;VALUE</text>
 </symbol>
 <symbol name="HEAD-PHONES+SW">
 <description>head phones with switch</description>
@@ -830,7 +830,7 @@ PTC (AKIZUKI DENSHI) : I-17061</description>
 <description>&lt;b&gt;TMHU27&lt;/b&gt; lever switch&lt;br&gt;
 AKIZUKI DENSHI : P-08071&lt;br&gt;</description>
 <gates>
-<gate name="G$1" symbol="TMHU27" x="-2.54" y="0"/>
+<gate name="G$1" symbol="TMHU27" x="0" y="0"/>
 </gates>
 <devices>
 <device name="-STD" package="TMHU27">
