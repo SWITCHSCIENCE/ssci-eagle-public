@@ -7,7 +7,7 @@
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.1" altunitdist="mm" altunit="mm"/>
+<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
@@ -460,7 +460,7 @@ AKIZUKI DENSHI : P-08071&lt;br&gt;</description>
 <pad name="4" x="2.5" y="8.3" drill="1.2"/>
 <pad name="5" x="5" y="8.3" drill="1.2"/>
 <text x="-5" y="12.5" size="0.8128" layer="25" font="vector" ratio="10" rot="SR0">&gt;NAME</text>
-<text x="-5" y="11.5" size="0.8128" layer="25" font="vector" ratio="10" rot="SR0">&gt;VALUE</text>
+<text x="-5" y="11.5" size="0.8128" layer="27" font="vector" ratio="10" rot="SR0">&gt;VALUE</text>
 <wire x1="-6.1" y1="-0.2" x2="-6.1" y2="10.9" width="0.15" layer="21"/>
 <wire x1="-6.1" y1="10.9" x2="6.1" y2="10.9" width="0.15" layer="21"/>
 <wire x1="6.1" y1="10.9" x2="6.1" y2="-0.2" width="0.15" layer="21"/>
